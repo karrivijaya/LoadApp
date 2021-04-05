@@ -1,11 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="@dimen/detail_screen_padding"
+    app:layoutDescription="@xml/content_detail_scene"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".DetailActivity"
     tools:showIn="@layout/activity_detail">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/tv_fileName"
+        style="@style/detailScreen_textView_small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/detail_activity_file_name" />
+
+    <TextView
+        android:id="@+id/tv_fileNameValue"
+        style="@style/detailScreen_textView_large"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        tools:text="Glide - Image loading library by BumpTech" />
+
+    <TextView
+        android:id="@+id/tv_fileStatus"
+        style="@style/detailScreen_textView_small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/detail_activity_file_status" />
+
+    <TextView
+        android:id="@+id/tv_fileStatusValue"
+        style="@style/detailScreen_textView_large"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="File status value" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_detail_screen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_text"
+        android:textSize="@dimen/detail_button_text_size"/>
+
+</androidx.constraintlayout.motion.widget.MotionLayout>

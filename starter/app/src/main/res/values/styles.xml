@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -16,5 +16,22 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="textViewStyle" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">@dimen/default_text_size</item>
+    </style>
+    
+    <style name="detailScreen_textView_small" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">@dimen/detail_view_text_size_small</item>
+        <item name="android:textColor">@color/text_view_dark_grey</item>
+    </style>
+    <style name="detailScreen_textView_large" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">@dimen/detail_view_text_size_large</item>
+        <item name="android:textColor">@color/text_view_dark_color</item>
+    </style>
+    <style name="buttonTextStyle" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:textSize">@dimen/detail_view_text_size_large</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
 
 </resources>

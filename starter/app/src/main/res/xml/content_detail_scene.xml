@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        app:constraintSetEnd="@id/end"
+        app:constraintSetStart="@+id/start"
+        app:autoTransition="animateToEnd"
+        app:duration="3000">
+        <KeyFrameSet>
+            <KeyAttribute
+                app:motionTarget="@+id/tv_fileStatusValue"
+                app:framePosition="20"
+                android:alpha="0.25">
+            <CustomAttribute
+                app:attributeName="colorFilter"
+                app:customColorValue="#DB5EB1"/>
+            </KeyAttribute>
+            <KeyAttribute
+                app:motionTarget="@+id/tv_fileStatusValue"
+                app:framePosition="40"
+                android:alpha="0.5">
+            <CustomAttribute
+                app:attributeName="colorFilter"
+                app:customColorValue="#004349"/>
+            </KeyAttribute>
+            <KeyAttribute
+                app:motionTarget="@+id/tv_fileStatusValue"
+                app:framePosition="60"
+                android:alpha="1.0" >
+            <CustomAttribute
+                app:attributeName="colorFilter"
+                app:customColorValue="#DB5EB1"/>
+            </KeyAttribute>
+            <KeyAttribute
+                app:motionTarget="@+id/tv_fileStatusValue"
+                app:framePosition="80"
+                android:alpha="0.25">
+            <CustomAttribute
+                app:attributeName="colorFilter"
+                app:customColorValue="#004349"/>
+            </KeyAttribute>
+            <KeyAttribute
+                app:motionTarget="@+id/tv_fileStatusValue"
+                app:framePosition="100"
+                android:alpha="1.0">
+                <CustomAttribute
+                    app:attributeName="colorFilter"
+                    app:customColorValue="#004349"/>
+            </KeyAttribute>
+        </KeyFrameSet>
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@+id/tv_fileName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintEnd_toStartOf="@+id/tv_fileNameValue"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+        <Constraint
+            android:id="@+id/tv_fileNameValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBaseline_toBaselineOf="@+id/tv_fileName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_fileName"
+            android:layout_marginTop="32dp"
+            />
+        <Constraint
+            android:id="@+id/tv_fileStatus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/tv_fileName"
+            app:layout_constraintTop_toBottomOf="@+id/tv_fileNameValue"
+            app:layout_constraintEnd_toEndOf="@id/tv_fileName"
+            android:layout_marginTop="32dp"
+            app:layout_constraintHorizontal_bias="0.49" />
+        <Constraint
+            android:id="@+id/tv_fileStatusValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@id/tv_fileNameValue"
+            app:layout_constraintTop_toBottomOf="@+id/tv_fileNameValue"
+            app:layout_constraintBaseline_toBaselineOf="@id/tv_fileStatus"
+            android:layout_marginTop="32dp"
+            app:layout_constraintStart_toStartOf="@+id/tv_fileNameValue"
+            />
+        <Constraint
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_detail_screen"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/tv_fileName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintEnd_toStartOf="@+id/tv_fileNameValue"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+        <Constraint
+            android:id="@+id/tv_fileNameValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBaseline_toBaselineOf="@+id/tv_fileName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_fileName"
+            android:layout_marginTop="32dp"
+            />
+        <Constraint
+            android:id="@+id/tv_fileStatus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/tv_fileName"
+            app:layout_constraintTop_toBottomOf="@+id/tv_fileNameValue"
+            app:layout_constraintEnd_toEndOf="@id/tv_fileName"
+            android:layout_marginTop="32dp"
+            app:layout_constraintHorizontal_bias="0.49" />
+        <Constraint
+            android:id="@+id/tv_fileStatusValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@id/tv_fileNameValue"
+            app:layout_constraintTop_toBottomOf="@+id/tv_fileNameValue"
+            app:layout_constraintBaseline_toBaselineOf="@id/tv_fileStatus"
+            android:layout_marginTop="32dp"
+            app:layout_constraintStart_toStartOf="@+id/tv_fileNameValue"
+            />
+        <Constraint
+            android:id="@+id/button_detail_screen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </ConstraintSet>
+
+</MotionScene>

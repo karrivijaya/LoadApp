@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ND940C3-Project</string>
+    <string name="app_name">Load App</string>
     <string name="app_description">Download files from Internet</string>
     <string name="action_settings">Settings</string>
 
@@ -7,8 +7,27 @@
     <string name="notification_title">Udacity: Android Kotlin Nanodegree </string>
     <string name="notification_description">The Project 3 repository is downloaded</string>
     <string name="notification_button">See changes</string>
+    <string name="loadapp_notification_channel_id" translatable="false">load_app</string>
+    <string name="loadapp_notification_channel_name">LoadApp</string>
 
-    <string name="button_name">Click me</string>
+
+    <string name="button_name">Download</string>
     <string name="button_loading">We are loading </string>
     <string name="title_activity_detail">DetailActivity</string>
+
+    <string name="radio_button_glide_desc">Glide - Image Loading Library by BumpTech</string>
+    <string name="radio_button_udacity_desc">Loading - Current repository by Udacity</string>
+    <string name="radio_button_retrofit_desc">Retrofit - Type-safe HTTP client for Android and Java by Square, Inc</string>
+    <string name="toast_message">Please select the file to download</string>
+    <string name="notification_check_status">Check Status</string>
+    <string name="button_text">OK</string>
+
+    <string name="detail_activity_file_name">File Name:</string>
+    <string name="detail_activity_file_status">Status:</string>
+    <string name="open_file">open file</string>
+    <string name="click_open_file">Click here to open the file</string>
+    <string name="permission_needed">Permission needed</string>
+    <string name="permission_message">This permission is needed to download the file</string>
+    <string name="permission_OK">OK</string>
+    <string name="permission_cancel">CANCEL</string>
 </resources>
