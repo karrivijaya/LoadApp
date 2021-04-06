@@ -6,4 +6,5 @@
     <color name="white">#FFFFFF</color>
     <color name="text_view_dark_color">#057877</color>
     <color name="text_view_dark_grey">#707070</color>
+    <color name="colorTextAnim">#FF5722</color>
 </resources>

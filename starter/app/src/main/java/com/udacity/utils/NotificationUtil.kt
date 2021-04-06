@@ -4,6 +4,7 @@ import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.graphics.BitmapFactory
 import androidx.core.app.NotificationCompat
 import com.udacity.DetailActivity
 import com.udacity.R
@@ -25,17 +26,29 @@ fun NotificationManager.sendNotification(messageBody:String, applicationContext:
                                 contentIntent,
                                 PendingIntent.FLAG_UPDATE_CURRENT)
 
+    val image = BitmapFactory.decodeResource(
+        applicationContext.resources,
+        R.drawable.earth)
+    val earth = BitmapFactory.decodeResource(
+                applicationContext.resources,
+                R.drawable.earth)
+    val bigPicStyle = NotificationCompat.BigPictureStyle()
+        .bigPicture(earth)
+        .bigLargeIcon(null)
+
     val builder = NotificationCompat.Builder(
                         applicationContext,
                         applicationContext.getString(R.string.loadapp_notification_channel_id))
                     .setSmallIcon(R.drawable.ic_assistant_black_24dp)
                     .setContentTitle(applicationContext.getString(R.string.notification_title))
-            .setContentText(messageBody)
-            .setContentIntent(contentPendingIntent)
-            .addAction(R.drawable.ic_assistant_black_24dp,
+                    .setContentText(messageBody)
+                    .setContentIntent(contentPendingIntent)
+                    .setStyle(bigPicStyle)
+                    .setLargeIcon(image)
+                    .addAction(R.drawable.ic_assistant_black_24dp,
                     applicationContext.getString(R.string.notification_check_status),
                     contentPendingIntent)
-            .setAutoCancel(true)
+                    .setAutoCancel(true)
 
 
     notify(NOTIFICATION_ID, builder.build())

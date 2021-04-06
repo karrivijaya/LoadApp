@@ -8,6 +8,7 @@ import android.graphics.RectF
 import android.graphics.Typeface
 import android.util.AttributeSet
 import android.view.View
+import androidx.core.content.withStyledAttributes
 import kotlin.properties.Delegates
 
 class LoadingButton @JvmOverloads constructor(
@@ -23,13 +24,17 @@ class LoadingButton @JvmOverloads constructor(
 
     private val ANIM_DURATION = 3000L
 
+    private var buttonBackgroundColor = 0
+    private var buttonTextColor = 0
+    private var buttonTextColorDefault = 0
+    private var buttonTextColorAnim = 0
+
     private var paintRect = Paint(Paint.ANTI_ALIAS_FLAG).apply{
         style = Paint.Style.FILL_AND_STROKE
         color = resources.getColor(R.color.colorPrimary, null)
     }
     private var paintRectLoadingProgressBar = Paint(Paint.ANTI_ALIAS_FLAG).apply{
         style = Paint.Style.FILL_AND_STROKE
-        color = resources.getColor(R.color.colorPrimaryDark, null)
     }
     private var paintCircle = Paint(Paint.ANTI_ALIAS_FLAG).apply{
         style = Paint.Style.FILL
@@ -41,7 +46,6 @@ class LoadingButton @JvmOverloads constructor(
         textAlign = Paint.Align.CENTER
         textSize = 60f
         typeface = Typeface.create("", Typeface.NORMAL)
-        color = resources.getColor(R.color.white, null)
     }
 
     private var textPosX : Float = 0F
@@ -61,12 +65,23 @@ class LoadingButton @JvmOverloads constructor(
     }
 
     init{
+
+        context.withStyledAttributes(attrs, R.styleable.LoadingButton){
+            buttonBackgroundColor = getColor(R.styleable.LoadingButton_buttonBackgroundColor,0)
+            buttonTextColorDefault = getColor(R.styleable.LoadingButton_buttonTextColorDefault,0)
+            buttonTextColorAnim = getColor(R.styleable.LoadingButton_buttonTextColorAnim,0)
+        }
+
         buttonState = ButtonState.Clicked
         oval = RectF()
+        buttonTextColor = buttonTextColorDefault
+
+
     }
 
     private fun showLoadingAnimation() {
         buttonText = resources.getString(R.string.button_loading)
+        buttonTextColor = buttonTextColorAnim
         val left = widthSize - 250f
         val right = widthSize - 150f
         oval.set(left, (heightSize/4).toFloat(),right, (heightSize/4+100f))
@@ -97,6 +112,7 @@ class LoadingButton @JvmOverloads constructor(
 
     private fun stopLoadingAnimation(){
         buttonText = resources.getString(R.string.button_name)
+        buttonTextColor = buttonTextColorDefault
         buttonWidth = 0
         sweepAngle = 0
         valueAnimator.cancel()
@@ -106,6 +122,9 @@ class LoadingButton @JvmOverloads constructor(
 
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
+
+        paintRectLoadingProgressBar.color = buttonBackgroundColor
+        paintText.color = buttonTextColor
 
         canvas?.drawRect(0f,0f,widthSize.toFloat(),heightSize.toFloat(), paintRect)
         canvas?.drawRect(0f,0f,buttonWidth.toFloat(),heightSize.toFloat(),paintRectLoadingProgressBar)
